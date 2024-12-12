@@ -5,5 +5,4 @@
 [node name="GameLevel" type="Node2D"]
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("1_ymhe8")]
-position = Vector2(260, 211)
-scale = Vector2(60, 60)
+position = Vector2(147, 113)
