@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://yms7dbf2d5hr"]
+
+[ext_resource type="Script" path="res://scenes/town_hall.gd" id="1_ghadc"]
+[ext_resource type="Texture2D" uid="uid://dxp8k6d0w63vl" path="res://art/town_hall.png" id="1_we8un"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lg7nf"]
+size = Vector2(126, 78)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ga4ao"]
+size = Vector2(25, 20)
+
+[node name="TownHall" type="Node2D"]
+script = ExtResource("1_ghadc")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_we8un")
+
+[node name="Structure" type="StaticBody2D" parent="."]
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Structure"]
+position = Vector2(-1, -10)
+shape = SubResource("RectangleShape2D_lg7nf")
+
+[node name="Doorway" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Doorway"]
+position = Vector2(-1.5, 24)
+shape = SubResource("RectangleShape2D_ga4ao")
+
+[connection signal="body_entered" from="Doorway" to="." method="_on_doorway_body_entered"]
+[connection signal="body_exited" from="Doorway" to="." method="_on_doorway_body_exited"]
