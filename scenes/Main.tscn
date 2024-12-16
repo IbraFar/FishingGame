@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://b4cj2s87ce1yf"]
+[gd_scene load_steps=29 format=3 uid="uid://b4cj2s87ce1yf"]
 
 [ext_resource type="PackedScene" uid="uid://dcwtt83tupvf4" path="res://characters/player.tscn" id="1_bdeio"]
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_vr5fl"]
@@ -7,8 +7,12 @@
 [ext_resource type="Texture2D" uid="uid://c3pmptrseqvar" path="res://art/fishing/Buildings/buildings_all.png" id="4_pa7xy"]
 [ext_resource type="PackedScene" uid="uid://cbxb2p0xbxxrm" path="res://scenes/House.tscn" id="5_jn48w"]
 [ext_resource type="PackedScene" uid="uid://ddsto2wwxyk22" path="res://scenes/inside_home.tscn" id="6_aj3hk"]
+[ext_resource type="Texture2D" uid="uid://uipi3qgkmt4s" path="res://art/fishing/Fish Forage Items/fish_shadow_black.png" id="6_vdwci"]
+[ext_resource type="Texture2D" uid="uid://do7flwdrp2aam" path="res://art/buttons/Keys.png" id="7_w5m8n"]
 [ext_resource type="PackedScene" uid="uid://yms7dbf2d5hr" path="res://scenes/town_hall.tscn" id="8_1chjf"]
+[ext_resource type="Texture2D" uid="uid://clcbbtwjh81h3" path="res://art/buttons/PressedKeys.png" id="8_sr4mx"]
 [ext_resource type="PackedScene" uid="uid://cb0buj8x16d0t" path="res://scenes/inside_townhall.tscn" id="9_gyict"]
+[ext_resource type="Script" path="res://scenes/fishing_zone.gd" id="13_njwmu"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_aiwsq"]
 tile_data = PackedInt32Array(65536, 393216, 805306380, 131072, 0, 13, 196608, 0, 13, 262144, 327680, 1610612749, 1, 458752, 13, 65537, 524288, 1342177293, 131073, 65536, 13, 196609, 65536, 13, 262145, 262144, 13)
@@ -5730,6 +5734,94 @@ texture = ExtResource("4_pa7xy")
 2:15/0 = 0
 3:15/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_43ti3"]
+texture = ExtResource("6_vdwci")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+9:0/0 = 0
+10:0/0 = 0
+11:0/0 = 0
+12:0/0 = 0
+13:0/0 = 0
+14:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wg4j7"]
+texture = ExtResource("7_w5m8n")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+2:7/0 = 0
+3:7/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2yfcf"]
+texture = ExtResource("8_sr4mx")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+2:7/0 = 0
+3:7/0 = 0
+
 [sub_resource type="TileSet" id="TileSet_odaif"]
 physics_layer_0/collision_layer = 1
 physics_layer_0/collision_mask = 2
@@ -5737,10 +5829,55 @@ terrain_set_0/mode = 2
 sources/0 = SubResource("TileSetAtlasSource_768wl")
 sources/1 = SubResource("TileSetAtlasSource_rbxsc")
 sources/2 = SubResource("TileSetAtlasSource_yw6g4")
+sources/3 = SubResource("TileSetAtlasSource_43ti3")
+sources/4 = SubResource("TileSetAtlasSource_wg4j7")
+sources/5 = SubResource("TileSetAtlasSource_2yfcf")
 pattern_0 = SubResource("TileMapPattern_aiwsq")
 pattern_1 = SubResource("TileMapPattern_fse1u")
 pattern_2 = SubResource("TileMapPattern_afm0u")
 pattern_3 = SubResource("TileMapPattern_oba5d")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_brxll"]
+size = Vector2(19, 15)
+
+[sub_resource type="Animation" id="Animation_qoglj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FishingButton:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("7_w5m8n")]
+}
+
+[sub_resource type="Animation" id="Animation_q28bn"]
+resource_name = "fishing_button_press"
+length = 0.5
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FishingButton:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("7_w5m8n"), ExtResource("8_sr4mx"), ExtResource("8_sr4mx")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nljb4"]
+_data = {
+"RESET": SubResource("Animation_qoglj"),
+"fishing_button_press": SubResource("Animation_q28bn")
+}
 
 [node name="Main" type="Node2D"]
 position = Vector2(40, -23)
@@ -5780,3 +5917,26 @@ inside_home = ExtResource("6_aj3hk")
 [node name="TownHall" parent="." instance=ExtResource("8_1chjf")]
 position = Vector2(464, 51)
 inside_home = ExtResource("9_gyict")
+
+[node name="FishingZone" type="Area2D" parent="."]
+position = Vector2(254, 79)
+script = ExtResource("13_njwmu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FishingZone"]
+position = Vector2(1.5, 0.5)
+shape = SubResource("RectangleShape2D_brxll")
+
+[node name="FishingButton" type="Sprite2D" parent="FishingZone"]
+position = Vector2(1, -38)
+texture = ExtResource("7_w5m8n")
+hframes = 5
+vframes = 8
+frame = 5
+
+[node name="ButtonPress" type="AnimationPlayer" parent="FishingZone"]
+libraries = {
+"": SubResource("AnimationLibrary_nljb4")
+}
+
+[connection signal="body_entered" from="FishingZone" to="FishingZone" method="_on_body_entered"]
+[connection signal="body_exited" from="FishingZone" to="FishingZone" method="_on_body_exited"]
