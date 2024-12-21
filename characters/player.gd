@@ -12,6 +12,7 @@ var house
 func _ready() -> void:
 	house = Node2D
 	set_house(null)
+	add_to_group("player")
 	update_animation_parameters(starting_direction)
 	
 func _physics_process(_delta: float) -> void:

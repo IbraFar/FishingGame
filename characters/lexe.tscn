@@ -1,0 +1,128 @@
+[gd_scene load_steps=15 format=3 uid="uid://chyv7f20n0m6o"]
+
+[ext_resource type="Script" path="res://characters/lexe.gd" id="1_as3s8"]
+[ext_resource type="Texture2D" uid="uid://cfo50736red0r" path="res://art/Character v.2/characters/char4.png" id="2_2g3po"]
+[ext_resource type="Texture2D" uid="uid://b08pce3qyvl65" path="res://art/Character v.2/hair/long_straight .png" id="3_fpheb"]
+[ext_resource type="Texture2D" uid="uid://dlc8irs1txept" path="res://art/Character v.2/clothes/suit.png" id="4_hsqr5"]
+[ext_resource type="Texture2D" uid="uid://ie1el0fvxyy8" path="res://art/Character v.2/clothes/pants_suit.png" id="5_5jot5"]
+[ext_resource type="Texture2D" uid="uid://to4vf3dt4kx4" path="res://art/Character v.2/clothes/shoes.png" id="6_kj5tq"]
+[ext_resource type="Texture2D" uid="uid://c07ijrxlxgy3j" path="res://art/Character v.2/acc/earring_emerald.png" id="7_jmx8w"]
+[ext_resource type="Texture2D" uid="uid://do7flwdrp2aam" path="res://art/buttons/Keys.png" id="8_yostt"]
+[ext_resource type="Texture2D" uid="uid://clcbbtwjh81h3" path="res://art/buttons/PressedKeys.png" id="9_0d3a1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a5avu"]
+radius = 6.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_c4i5g"]
+radius = 30.0167
+
+[sub_resource type="Animation" id="Animation_oepxi"]
+resource_name = "ButtonPress"
+length = 0.6
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Button:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Button:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("8_yostt"), ExtResource("9_0d3a1"), ExtResource("8_yostt"), ExtResource("9_0d3a1")]
+}
+
+[sub_resource type="Animation" id="Animation_xw6jk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Button:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("8_yostt")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6yx7v"]
+_data = {
+"ButtonPress": SubResource("Animation_oepxi"),
+"RESET": SubResource("Animation_xw6jk")
+}
+
+[node name="Lexe" type="CharacterBody2D"]
+script = ExtResource("1_as3s8")
+
+[node name="Body" type="Sprite2D" parent="."]
+texture = ExtResource("2_2g3po")
+hframes = 8
+vframes = 49
+
+[node name="Hair" type="Sprite2D" parent="."]
+texture = ExtResource("3_fpheb")
+hframes = 112
+vframes = 49
+
+[node name="Clothes" type="Sprite2D" parent="."]
+texture = ExtResource("4_hsqr5")
+hframes = 80
+vframes = 49
+
+[node name="Pants" type="Sprite2D" parent="."]
+texture = ExtResource("5_5jot5")
+hframes = 80
+vframes = 49
+
+[node name="Shoes" type="Sprite2D" parent="."]
+texture = ExtResource("6_kj5tq")
+hframes = 80
+vframes = 49
+
+[node name="Earrings" type="Sprite2D" parent="."]
+texture = ExtResource("7_jmx8w")
+hframes = 8
+vframes = 49
+
+[node name="collision" type="CollisionShape2D" parent="."]
+position = Vector2(0, 10)
+shape = SubResource("CircleShape2D_a5avu")
+
+[node name="chat_detection_area" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="chat_detection_area"]
+position = Vector2(0, 6)
+shape = SubResource("CircleShape2D_c4i5g")
+
+[node name="Button" type="Sprite2D" parent="chat_detection_area"]
+position = Vector2(0, -24)
+texture = ExtResource("8_yostt")
+hframes = 5
+vframes = 8
+frame = 4
+
+[node name="ButtonPress" type="AnimationPlayer" parent="chat_detection_area"]
+libraries = {
+"": SubResource("AnimationLibrary_6yx7v")
+}
+
+[connection signal="body_entered" from="chat_detection_area" to="." method="_on_chat_detection_area_body_entered"]
+[connection signal="body_exited" from="chat_detection_area" to="." method="_on_chat_detection_area_body_exited"]

@@ -5887,7 +5887,7 @@ script = ExtResource("1_vr5fl")
 top_level = true
 light_mask = 2
 y_sort_enabled = true
-position = Vector2(96, 79)
+position = Vector2(264, 99)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="player"]
 remote_path = NodePath("../../Camera2D")
@@ -5906,7 +5906,7 @@ layer_2/name = "Above Ground"
 layer_2/tile_data = PackedInt32Array(1245201, 393217, 62, 262155, 65538, 5)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(56, 102)
+position = Vector2(224, 122)
 zoom = Vector2(1.4, 1.4)
 
 [node name="House" parent="." instance=ExtResource("5_jn48w")]

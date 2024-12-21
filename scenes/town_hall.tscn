@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://yms7dbf2d5hr"]
 
 [ext_resource type="Script" path="res://scenes/town_hall.gd" id="1_ghadc"]
-[ext_resource type="Texture2D" uid="uid://dxp8k6d0w63vl" path="res://art/town_hall.png" id="1_we8un"]
+[ext_resource type="Texture2D" uid="uid://dxp8k6d0w63vl" path="res://art/interior/town_hall.png" id="1_we8un"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lg7nf"]
 size = Vector2(126, 78)

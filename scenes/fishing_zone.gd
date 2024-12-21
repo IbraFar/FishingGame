@@ -24,4 +24,7 @@ func _process(_delta: float) -> void:
 		start_fishing()
 
 func start_fishing():
-	get_tree().change_scene_to_file("res://scenes/FishingMinigame.tscn")
+	get_tree().paused = true
+	PhysicsServer2D.set_active(true)
+	var fishingGame = preload("res://scenes/FishingMinigame.tscn").instantiate()
+	get_tree().current_scene.add_child(fishingGame)

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dxp8k6d0w63vl"
-path="res://.godot/imported/town_hall.png-75c62f3c802d1efc6f46ac085f49eac3.ctex"
+uid="uid://c53yjrxmhmgh"
+path="res://.godot/imported/icon_label.png-3923bd1131990c8869923c838ffdb9ae.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/town_hall.png"
-dest_files=["res://.godot/imported/town_hall.png-75c62f3c802d1efc6f46ac085f49eac3.ctex"]
+source_file="res://addons/dialogic/Modules/Jump/icon_label.png"
+dest_files=["res://.godot/imported/icon_label.png-3923bd1131990c8869923c838ffdb9ae.ctex"]
 
 [params]
 

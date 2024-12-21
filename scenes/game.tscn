@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cbxb2p0xbxxrm" path="res://scenes/House.tscn" id="5_4set0"]
 [ext_resource type="PackedScene" uid="uid://ddsto2wwxyk22" path="res://scenes/inside_home.tscn" id="6_tgf5m"]
 [ext_resource type="PackedScene" uid="uid://cb0buj8x16d0t" path="res://scenes/inside_townhall.tscn" id="7_ocsq3"]
-[ext_resource type="Texture2D" uid="uid://dxp8k6d0w63vl" path="res://art/town_hall.png" id="17_2pan8"]
+[ext_resource type="Texture2D" uid="uid://dxp8k6d0w63vl" path="res://art/interior/town_hall.png" id="17_2pan8"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_aiwsq"]
 tile_data = PackedInt32Array(65536, 393216, 805306380, 131072, 0, 13, 196608, 0, 13, 262144, 327680, 1610612749, 1, 458752, 13, 65537, 524288, 1342177293, 131073, 65536, 13, 196609, 65536, 13, 262145, 262144, 13)
